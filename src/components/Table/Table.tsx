@@ -1,27 +1,27 @@
-import { FC } from "react"
+import { FC } from "react";
+import styles from "./Table.module.scss";
 
-export const Table: FC = () => {
+export const Table: FC = ({ columns, rows }) => {
   return (
     <table>
       <thead>
         <tr>
           <th></th>
-          <th>Обработка 1</th>
-          <th>Обработка 2</th>
+          {columns?.map((colName, index) => {
+            return <th key={index}>{colName}</th>;
+          })}
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Заказ 1</td>
-          <td>1</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>Заказ 2</td>
-          <td>2</td>
-          <td>2</td>
-        </tr>
+        {rows?.map((row, index) => {
+          return <tr key={index}>
+            <td>{`Заказ ${index}`}</td>
+            {row?.map((item, itemIndex) => {
+              return <td key={itemIndex}>{item ? "true" : "false"}</td>;
+            })}
+          </tr>;
+        })}
       </tbody>
     </table>
-  )
-}
+  );
+};
