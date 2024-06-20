@@ -1,6 +1,8 @@
-export async function getRows(columns) {
+import { TColumns, TRows } from "../types/types";
+
+export async function getRows(columns: TColumns): Promise<TRows> {
   const rowsNumber = Math.floor(Math.random() * 99) + 2;
-  const rows = [];
+  const rows: TRows = [];
 
   for (let i = 1; i <= rowsNumber; i++) {
     const singleRow: boolean[] = [];

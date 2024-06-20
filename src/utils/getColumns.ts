@@ -1,6 +1,8 @@
-export async function getColumns() {
+import { TColumns } from "../types/types";
+
+export async function getColumns(): Promise<TColumns> {
   const columnsNumber: number = Math.floor(Math.random() * 99) + 2;
-  const columns = [];
+  const columns: TColumns = [];
 
   for (let i = 1; i <= columnsNumber; i++) {
     columns.push(`Обработка ${i}`);

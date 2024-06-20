@@ -1,23 +1,35 @@
 import { FC } from "react";
 import styles from "./Table.module.scss";
+import { TColumns, TRows } from "../../types/types";
 
-export const Table: FC = ({ columns, rows }) => {
+interface ITableProps {
+  columns: TColumns;
+  rows: TRows;
+}
+
+export const Table: FC<ITableProps> = ({ columns, rows }) => {
   return (
     <table className={styles.table}>
       <thead>
         <tr>
           <th></th>
-          {columns?.map((colName, index) => {
-            return <th key={index}><span>{colName}</span></th>;
+          {columns.map((colName, index) => {
+            return (
+              <th key={index}>
+                <span>{colName}</span>
+              </th>
+            );
           })}
         </tr>
       </thead>
       <tbody>
-        {rows?.map((row, index) => {
+        {rows.map((row, index) => {
           return (
             <tr key={index}>
-              <td><span>{`Заказ ${index + 1}`}</span></td>
-              {row?.map((item, itemIndex) => {
+              <td>
+                <span>{`Заказ ${index + 1}`}</span>
+              </td>
+              {row.map((item, itemIndex) => {
                 return (
                   <td
                     key={itemIndex}
