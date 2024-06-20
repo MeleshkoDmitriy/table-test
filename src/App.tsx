@@ -19,7 +19,13 @@ function App() {
 
   return (
     <main>
-      <Table columns={columns} rows={rows} />
+      {
+        rows  ? (
+          <Table columns={columns} rows={rows} />
+            ) : (
+          <h1>Loading...</h1>    
+        )
+      }
     </main>
   )
 }

@@ -1,0 +1,18 @@
+td {
+  min-width: 120px;
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+th {
+  height: 120px;
+
+  span {
+    display: inline-block;
+    transform: rotate(-90deg);
+  }
+}
