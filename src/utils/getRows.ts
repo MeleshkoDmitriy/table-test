@@ -8,13 +8,13 @@ export async function getRows(columns: TColumns): Promise<TRows> {
     const singleRow: boolean[] = [];
 
     for (let j = 0; j < columns.length; j++) {
-      singleRow.push(Math.random() > 0.5)
+      singleRow.push(Math.random() > 0.5);
     }
 
-    rows.push(singleRow)
+    rows.push(singleRow);
   }
 
-  await new Promise(resolve => setTimeout(resolve, 1500));
+  await new Promise((resolve) => setTimeout(resolve, 1500));
 
   return rows;
 }

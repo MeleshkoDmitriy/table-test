@@ -8,7 +8,7 @@ export async function getColumns(): Promise<TColumns> {
     columns.push(`Обработка ${i}`);
   }
 
-  await new Promise(resolve => setTimeout(resolve, 1500));
+  await new Promise((resolve) => setTimeout(resolve, 1500));
 
   return columns;
 }
