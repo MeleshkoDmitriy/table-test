@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import { Table } from "./components/Table/Table";
-import { getColumns } from "./utils/getColumns";
-import { getRows } from "./utils/getRows";
-import { TColumns, TRows } from "./types/types";
+import { FC, useEffect, useState } from 'react';
+import './App.css';
+import { Table } from './components/Table/Table';
+import { getColumns } from './utils/getColumns';
+import { getRows } from './utils/getRows';
+import { TColumns, TRows } from './types/types';
 
-function App() {
+export const App: FC = () => {
   const [columns, setColumns] = useState<TColumns>([]);
   const [rows, setRows] = useState<TRows>([]);
 
@@ -20,15 +20,5 @@ function App() {
       .catch((error) => console.error(error));
   }, []);
 
-  return (
-    <main>
-      {rows.length ? (
-        <Table columns={columns} rows={rows} />
-      ) : (
-        <h1>Loading...</h1>
-      )}
-    </main>
-  );
-}
-
-export default App;
+  return <main>{rows.length ? <Table columns={columns} rows={rows} /> : <h1>Loading...</h1>}</main>;
+};

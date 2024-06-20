@@ -1,4 +1,4 @@
-import { TColumns } from "../types/types";
+import { TColumns } from '../types/types';
 
 export async function getColumns(): Promise<TColumns> {
   const columnsNumber: number = Math.floor(Math.random() * 99) + 2;

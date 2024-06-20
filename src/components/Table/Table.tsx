@@ -1,6 +1,6 @@
-import { FC } from "react";
-import styles from "./Table.module.scss";
-import { TColumns, TRows } from "../../types/types";
+import { FC } from 'react';
+import styles from './Table.module.scss';
+import { TColumns, TRows } from '../../types/types';
 
 interface ITableProps {
   columns: TColumns;
@@ -12,7 +12,7 @@ export const Table: FC<ITableProps> = ({ columns, rows }) => {
     <table className={styles.table}>
       <thead>
         <tr>
-          <th></th>
+          <th> </th>
           {columns.map((colName, index) => {
             return (
               <th key={index}>
@@ -34,11 +34,11 @@ export const Table: FC<ITableProps> = ({ columns, rows }) => {
                   <td
                     key={itemIndex}
                     style={{
-                      backgroundColor: item ? "#00be03" : "#ff0000",
-                      color: item ? "white" : "black",
+                      backgroundColor: item ? '#00be03' : '#ff0000',
+                      color: item ? 'white' : 'black',
                     }}
                   >
-                    <span>{item ? "true" : "false"}</span>
+                    <span>{item ? 'true' : 'false'}</span>
                   </td>
                 );
               })}
