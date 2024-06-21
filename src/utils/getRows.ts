@@ -1,7 +1,8 @@
+import { delay, maxValue, minValue } from '../constants/constants';
 import { TColumns, TRows } from '../types/types';
 
 export async function getRows(columns: TColumns): Promise<TRows> {
-  const rowsNumber = Math.floor(Math.random() * 99) + 2;
+  const rowsNumber = Math.floor(Math.random() * maxValue) + minValue;
   const rows: TRows = [];
 
   for (let i = 1; i <= rowsNumber; i++) {
@@ -14,7 +15,7 @@ export async function getRows(columns: TColumns): Promise<TRows> {
     rows.push(singleRow);
   }
 
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  await new Promise((resolve) => setTimeout(resolve, delay));
 
   return rows;
 }

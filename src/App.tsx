@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from 'react';
-import './App.css';
 import { Table } from './components/Table/Table';
 import { getColumns } from './utils/getColumns';
 import { getRows } from './utils/getRows';
@@ -20,5 +19,17 @@ export const App: FC = () => {
       .catch((error) => console.error(error));
   }, []);
 
-  return <main>{rows.length ? <Table columns={columns} rows={rows} /> : <h1>Loading...</h1>}</main>;
+  if (!rows.length) {
+    return (
+      <main>
+        <h1>Loading...</h1>
+      </main>
+    );
+  }
+
+  return (
+    <main>
+      <Table columns={columns} rows={rows} />
+    </main>
+  );
 };
